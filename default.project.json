@@ -6,6 +6,10 @@
     "ReplicatedStorage": {
       "Shared": {
         "$path": "src/shared"
+      },
+      "Packages": {
+        "$className": "Folder",
+        "$path": "Packages"
       }
     },
 
@@ -30,6 +34,7 @@
       "$path": "src/workspace",
       "$ignoreUnknownInstances": true
     },
+
     "Lighting": {
       "$properties": {
         "Ambient": [
@@ -43,6 +48,7 @@
         "Technology": "Voxel"
       }
     },
+
     "SoundService": {
       "$properties": {
         "RespectFilteringEnabled": true

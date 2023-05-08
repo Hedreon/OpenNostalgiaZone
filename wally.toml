@@ -1,0 +1,9 @@
+[package]
+name = "hedreon/opennostalgiazone"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+fusion = "elttob/fusion@0.2.0"
+cmdr = "evaera/cmdr@1.10.0"
