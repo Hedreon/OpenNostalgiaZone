@@ -4,9 +4,7 @@
     "$className": "DataModel",
 
     "ReplicatedStorage": {
-      "Shared": {
-        "$path": "src/shared"
-      },
+      "$path": "src/ReplicatedStorage",
       "Packages": {
         "$className": "Folder",
         "$path": "Packages"
@@ -14,16 +12,20 @@
     },
 
     "ServerScriptService": {
-      "Server": {
-        "$path": "src/server"
-      }
+      "$className": "ServerScriptService",
+      "$path": "src/ServerScriptService"
     },
 
     "StarterPlayer": {
+      "$className": "StarterPlayer",
       "StarterPlayerScripts": {
-        "Client": {
-          "$path": "src/client"
-        }
+        "$path": "src/StarterPlayer/StarterPlayerScripts"
+      },
+      "StarterCharacterScripts": {
+        "$path": "src/StarterPlayer/StarterCharacterScripts"
+      },
+      "$properties": {
+        "GameSettingsAvatar": "R6"
       }
     },
 
@@ -31,28 +33,40 @@
       "$properties": {
         "FilteringEnabled": true
       },
-      "$path": "src/workspace",
+      "$path": "src/Workspace",
       "$ignoreUnknownInstances": true
     },
 
     "Lighting": {
       "$properties": {
         "Ambient": [
-          0,
-          0,
-          0
+          0.501960784314,
+          0.501960784314,
+          0.501960784314
         ],
-        "Brightness": 2,
-        "GlobalShadows": true,
-        "Outlines": false,
-        "Technology": "Voxel"
-      }
+        "OutdoorAmbient": [
+          0.701960784314,
+          0.701960784314,
+          0.721568627451
+        ],
+        "FogColor": [
+          0.752941176471,
+          0.752941176471,
+          0.752941176471
+        ],
+        "Brightness": 1,
+        "GlobalShadows": false,
+        "Technology": "Compatibility",
+        "GeographicLatitude": 41.7
+      },
+      "$path": "src/Lighting"
     },
 
     "SoundService": {
       "$properties": {
         "RespectFilteringEnabled": true
-      }
+      },
+      "$path": "src/SoundService"
     }
   }
 }

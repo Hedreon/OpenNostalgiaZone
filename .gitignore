@@ -41,7 +41,7 @@ luac.out
 *.hex
 
 # Lock files
-wally.lock
+*.lock
 
 # Downloaded files
 Packages/
