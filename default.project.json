@@ -19,6 +19,8 @@
     "StarterPlayer": {
       "$className": "StarterPlayer",
       "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "$ignoreUnknownInstances": true,
         "$path": "src/StarterPlayer/StarterPlayerScripts"
       },
       "StarterCharacterScripts": {
@@ -26,7 +28,8 @@
       },
       "$properties": {
         "GameSettingsAvatar": "R6"
-      }
+      },
+      "$ignoreUnknownInstances": true
     },
 
     "Workspace": {

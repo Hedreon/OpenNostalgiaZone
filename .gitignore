@@ -40,7 +40,8 @@ luac.out
 *.x86_64
 *.hex
 
-# Lock files
+# Generated files
+sourcemap.json
 *.lock
 
 # Downloaded files
