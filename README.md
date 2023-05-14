@@ -17,6 +17,7 @@ Open Nostalgia Zone (ONZ) adds 2 simulations; the 2006 simulation and the 2016 s
 	```
 	aftman install
 	```
+	
 	Then,
 
 	```
