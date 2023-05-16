@@ -2,7 +2,7 @@
 
 [![Trello Board](https://img.shields.io/badge/trello-404040.svg?style=for-the-badge&logo=trello)](https://trello.com/b/upqPoyyh)
 
-Open Nostalgia Zone (ONZ) adds 2 simulations; the 2006 simulation and the 2016 simulation. 2006 being Roblox's inception and 2016 being Roblox's 10th birthday.
+Open Nostalgia Zone (ONZ) adds 2 simulations; the 2006 simulation and the 2016 simulation. 2006 being Roblox's inception and 2016 being Roblox's 10th birthday. Currently, for its initial release, it will only have the 2006 simulation.
 
 ## Building from source
 
