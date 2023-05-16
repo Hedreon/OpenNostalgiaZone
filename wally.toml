@@ -6,4 +6,3 @@ realm = "shared"
 
 [dependencies]
 fusion = "elttob/fusion@0.2.0"
-cmdr = "evaera/cmdr@1.10.0"
