@@ -1,0 +1,50 @@
+{
+	"ClassName": "TextLabel",
+	"Properties": {
+		"BackgroundColor3": {
+			"Color3": [
+				0.639215686275,
+				0.635294117647,
+				0.647058823529
+			]
+		},
+		"BackgroundTransparency": 0.5,
+		"BorderSizePixel": 0,
+		"Position": {
+			"UDim2": [
+				[
+					0,
+					0
+				],
+				[
+					0.1,
+					0
+				]
+			]
+		},
+		"Size": {
+			"UDim2": [
+				[
+					0.25,
+					0
+				],
+				[
+					0.25,
+					0
+				]
+			]
+		},
+		"ZIndex": 10,
+		"TextColor3": {
+			"Color3": [
+				1,
+				1,
+				1
+			]
+		},
+		"TextSize": 18,
+		"TextStrokeTransparency": 0.1,
+		"TextTransparency": 0.1,
+		"TextWrapped": true
+	}
+}
