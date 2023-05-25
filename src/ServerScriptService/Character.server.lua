@@ -1,9 +1,6 @@
 game.Players.PlayerAdded:Connect(function(player)
-	player.CharacterAdded:Connect(function(character)
+	player.CharacterAppearanceLoaded:Connect(function(character)
 		local humanoid = character:WaitForChild("Humanoid")
-		
-		task.wait(1)
-
 		local humanoidDescription = humanoid:GetAppliedDescription()
 
 		humanoidDescription.Head = 0

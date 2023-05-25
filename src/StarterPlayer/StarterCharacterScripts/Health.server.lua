@@ -1,24 +1,14 @@
-function waitForChild(parent, childName)
-	local child = parent:findFirstChild(childName)
-	if child then return child end
-	while true do
-		child = parent.ChildAdded:wait()
-		if child.Name==childName then return child end
-	end
-end
+-- Declarations
+local Humanoid = script.Parent:FindFirstChildOfClass("Humanoid")
 
--- declarations
-
-local Figure = script.Parent
-local Head = waitForChild(Figure, "Head")
-local Humanoid = waitForChild(Figure, "Humanoid")
-
--- regeneration
+-- Regeneration
 while true do
-	local s = wait(1)
+	local second = task.wait(1)
 	local health = Humanoid.Health
+
 	if health > 0 and health < Humanoid.MaxHealth then
-		health = health + 0.01 * s * Humanoid.MaxHealth
+		health = health + 0.01 * second * Humanoid.MaxHealth
+
 		if health * 1.05 < Humanoid.MaxHealth then
 			Humanoid.Health = health
 		else

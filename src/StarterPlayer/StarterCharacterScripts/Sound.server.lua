@@ -1,63 +1,58 @@
--- util
+-- Functions
+local function CreateSound(Name: string, ID: string, Looped: boolean)
+	local Sound = Instance.new("Sound", script.Parent.HumanoidRootPart)
+	Sound.Name = Name
+	Sound.SoundId = ID
+	Sound.Looped = Looped
+	Sound.Volume = 0.65
+	Sound.Archivable = false
 
-function waitForChild(parent, childName)
-	local child = parent:findFirstChild(childName)
-	if child then return child end
-	while true do
-		child = parent.ChildAdded:wait()
-		if child.Name==childName then return child end
-	end
+	return Sound
 end
 
-function newSound(id)
-	local sound = Instance.new("Sound")
-	sound.SoundId = id
-	sound.archivable = false
-	sound.Parent = script.Parent.Head
-	return sound
-end
-
--- declarations
-
-local sDied = newSound("rbxassetid://13112674056")
-local sFallingDown = newSound("rbxasset://sounds/splat.wav")
-local sFreeFalling = newSound("rbxassetid://12222200")
-local sGettingUp = newSound("rbxasset://sounds/hit.wav")
-local sJumping = newSound("rbxasset://sounds/button.wav")
-local sRunning = newSound("rbxasset://sounds/bfsl-minifigfoots1.mp3")
-sRunning.Looped = true
-
-local Figure = script.Parent
-local Head = waitForChild(Figure, "Head")
-local Humanoid = waitForChild(Figure, "Humanoid")
-
--- functions
-
-function onDied()
-	sDied:Play()
-end
-
-function onState(state, sound)
-	if state then
-		sound:Play()
+local function SoundState(State, Sound: Sound)
+	if State then
+		Sound:Play()
 	else
-		sound:Pause()
+		Sound:Stop()
 	end
 end
 
-function onRunning(speed)
-	if speed>0 then
-		sRunning:Play()
+-- Declarations
+local Humanoid = script.Parent:FindFirstChildOfClass("Humanoid")
+
+local Died = CreateSound("Died", "rbxassetid://13112674056", false)
+local Running = CreateSound("Running", "rbxasset://sounds/bfsl-minifigfoots1.mp3", true)
+local Jumping = CreateSound("Jumping", "rbxasset://sounds/button.wav", false)
+local GettingUp = CreateSound("GettingUp", "rbxasset://sounds/hit.wav", false)
+local FreeFalling = CreateSound("FreeFalling", "rbxassetid://12222200", false)
+local FallingDown = CreateSound("FallingDown", "rbxasset://sounds/splat.wav", false)
+
+-- Connections
+Humanoid.Died:Connect(function()
+	Died:Play()
+end)
+
+Humanoid.Running:Connect(function()
+	if Humanoid.MoveDirection ~= Vector3.new(0, 0, 0) then
+		Running:Play()
 	else
-		sRunning:Pause()
+		Running:Stop()
 	end
-end
+end)
 
--- connect up
+Humanoid.Jumping:Connect(function(state)
+	SoundState(state, Jumping)
+end)
 
-Humanoid.Died:connect(onDied)
-Humanoid.Running:connect(onRunning)
-Humanoid.Jumping:connect(function(state) onState(state, sJumping) end)
-Humanoid.GettingUp:connect(function(state) onState(state, sGettingUp) end)
-Humanoid.FreeFalling:connect(function(state) onState(state, sFreeFalling) end)
-Humanoid.FallingDown:connect(function(state) onState(state, sFallingDown) end)
+Humanoid.GettingUp:Connect(function(state)
+	SoundState(state, GettingUp)
+end)
+
+Humanoid.FreeFalling:Connect(function(state)
+	SoundState(state, FreeFalling)
+end)
+
+Humanoid.FallingDown:Connect(function(state)
+	SoundState(state, FallingDown)
+end)

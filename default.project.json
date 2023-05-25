@@ -40,6 +40,12 @@
       "$ignoreUnknownInstances": true
     },
 
+    "Players": {
+      "$properties": {
+        "MaxPlayers": 4
+      }
+    },
+
     "Lighting": {
       "$properties": {
         "Ambient": [
