@@ -1,7 +1,9 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 
-local Rainbow = require(ReplicatedStorage.Rainbow)
+local Modules = ReplicatedStorage:FindFirstChild("Modules")
+
+local Rainbow = require(Modules.Rainbow)
 
 local Boxes = {}
 
