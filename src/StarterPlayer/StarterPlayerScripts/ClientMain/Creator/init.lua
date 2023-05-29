@@ -11,7 +11,7 @@ local Children = Fusion.Children
 local TransparentFrame = require(script.Addons.TransparentFrame)
 local Button = require(script.Addons.Button)
 local Folder = require(script.Addons.Folder)
-local Messages = require(script.Addons.Messages)
+local Message = require(script.Addons.Message)
 local Label = require(script.Addons.Label)
 
 local ClickDebounce = false
@@ -30,7 +30,7 @@ function Creator:ControlBar()
 				OnClick = function()
 					if not ClickDebounce then
 						ClickDebounce = true
-						Messages:Create("Aesthetic purposes only.", 3)
+						Message:Create("Aesthetic purposes only.", 3)
 						task.wait(0.2)
 						ClickDebounce = false
 					end
@@ -46,7 +46,7 @@ function Creator:ControlBar()
 				OnClick = function()
 					if not ClickDebounce then
 						ClickDebounce = true
-						Messages:Create("Aesthetic purposes only.", 3)
+						Message:Create("Aesthetic purposes only.", 3)
 						task.wait(0.2)
 						ClickDebounce = false
 					end
