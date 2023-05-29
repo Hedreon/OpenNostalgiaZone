@@ -11,9 +11,9 @@ function TransparentFrame:Create(Properties)
 		BackgroundTransparency = 1,
 
 		Name = Properties.Name,
-		Size = Properties.Size or UDim2.new(1, 0, 1, 0),
-		AnchorPoint = Properties.AnchorPoint or Vector2.new(0, 0),
-		Position = Properties.Position or UDim2.new(0, 0, 0, 0),
+		Size = Properties.Size,
+		AnchorPoint = Properties.AnchorPoint,
+		Position = Properties.Position,
 
 		[Children] = Properties[Children]
 	}

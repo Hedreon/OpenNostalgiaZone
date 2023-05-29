@@ -17,8 +17,8 @@ function Label:Create(Properties)
 		Name = Properties.Name,
 		Text = Properties.Text,
 		Size = Properties.Size,
-		Position = Properties.Position or UDim2.new(0, 0, 0, 0),
-		Visible = Properties.Visible or true
+		Position = Properties.Position,
+		Visible = Properties.Visible
 	}
 end
 

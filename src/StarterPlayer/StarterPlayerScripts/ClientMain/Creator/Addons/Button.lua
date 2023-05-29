@@ -14,14 +14,14 @@ function Button:Create(Properties)
 		TextTransparency = 0.3,
 		TextStrokeColor3 = Color3.fromRGB(77, 77, 77),
 		TextStrokeTransparency = 0.9,
-		TextSize = 24,
+		TextSize = 18,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		FontFace = Font.new("rbxasset://fonts/families/LegacyArial.json", Enum.FontWeight.Bold, Enum.FontStyle.Italic),
 
 		Name = Properties.Name,
 		Text = Properties.Text,
 		Size = Properties.Size,
-		Position = Properties.Position or UDim2.new(0, 0, 0, 0),
+		Position = Properties.Position,
 
 		[OnEvent "Activated"] = Properties.OnClick
 	}

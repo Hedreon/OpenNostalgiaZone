@@ -69,7 +69,7 @@ end
 
 function Creator:PlayerList()
 	return TransparentFrame:Create {
-		Name = "PlayerFrame",
+		Name = "PlayerList",
 		Size = UDim2.new(0.2, 0, 0.96, 0),
 		AnchorPoint = Vector2.new(0.96, 0),
 		Position = UDim2.new(0.98, 0, 0.04, 0),

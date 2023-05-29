@@ -2,7 +2,7 @@ local Players = game:GetService("Players")
 
 local GUI = require(script.Parent)
 
-local Frame = GUI:Find("PlayerFrame")
+local Frame = GUI:Find("PlayerList")
 local Slots = Frame.Slots
 local Template = Frame.Template
 

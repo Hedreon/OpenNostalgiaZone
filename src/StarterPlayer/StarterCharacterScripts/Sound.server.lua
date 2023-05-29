@@ -34,7 +34,7 @@ Humanoid.Died:Connect(function()
 end)
 
 Humanoid.Running:Connect(function()
-	if Humanoid.MoveDirection ~= Vector3.new(0, 0, 0) then
+	if Humanoid.MoveDirection ~= Vector3.new(0, 0, 0) and Humanoid:GetState() ~= Enum.HumanoidStateType.Freefall then
 		Running:Play()
 	else
 		Running:Stop()

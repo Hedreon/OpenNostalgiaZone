@@ -33,7 +33,8 @@ function GUI:Initialize()
 
 			TransparentFrame:Create {
 				Name = "BypassFrame",
-			},
+				Size = UDim2.new(1, 0, 1, 0)
+			}
 		}
 	}
 end
