@@ -1,6 +1,12 @@
 {
 	"ClassName": "TextLabel",
 	"Properties": {
+		"AnchorPoint": {
+			"Vector2": [
+				0.5,
+				0.5
+			]
+		},
 		"BackgroundColor3": {
 			"Color3": [
 				0.639215686275,
@@ -13,11 +19,11 @@
 		"Position": {
 			"UDim2": [
 				[
-					0,
+					0.5,
 					0
 				],
 				[
-					0.1,
+					0.5,
 					0
 				]
 			]
@@ -34,7 +40,6 @@
 				]
 			]
 		},
-		"ZIndex": 10,
 		"TextColor3": {
 			"Color3": [
 				1,

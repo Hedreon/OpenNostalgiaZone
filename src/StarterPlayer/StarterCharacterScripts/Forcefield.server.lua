@@ -1,28 +1,18 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
 
 local Rainbow = require(ReplicatedStorage.Rainbow)
-
---..In case someone didn't even read that last line in the header...
-if not script.Parent:FindFirstChildOfClass("Humanoid") then
-	--This script only runs when in its character
-	local GoalParent = game:GetService("StarterPlayer"):FindFirstChildOfClass("StarterCharacterScripts")
-	if not GoalParent then
-		error("[OldForceField] Script will not run! Not parented to StarterCharacterScripts, cannot automatically set parent.", 0)
-	elseif GoalParent and not GoalParent:FindFirstChild(script.Name) then
-		warn("[OldForceField] Script was not parented to StarterCharacterScripts! (It has been moved to there just now.) - Please put this in StarterCharacterScripts while in studio.")
-		script.Parent = GoalParent
-	end
-end
 
 local Boxes = {}
 
 function CreateBoxes(ForceField)
-	for Index, Value in ipairs(script.Parent:GetChildren()) do
-		if Value:IsA("BasePart") and Value.Name ~= "HumanoidRootPart" then
+	for _, CharacterPart in script.Parent:GetChildren() do
+		if CharacterPart:IsA("BasePart") and CharacterPart.Name ~= "HumanoidRootPart" then
 			local Box = Instance.new("SelectionBox")
 			Box.Color3 = Color3.new(1, 0, 0)
-			Box.Adornee = Value
+			Box.Adornee = CharacterPart
 			Box.Parent = ForceField
+
 			table.insert(Boxes, Box)
 		end
 	end
@@ -31,7 +21,8 @@ end
 function CycleBoxes()
 	while true do
 		local NoBoxes = true
-		for Index, Box in ipairs(Boxes) do
+
+		for Index, Box in Boxes do
 			if Box:IsDescendantOf(script.Parent) then
                 Rainbow:Rain(Box, tick() % 1)
 				NoBoxes = false
@@ -44,21 +35,22 @@ function CycleBoxes()
 			break
 		end
 		
-		game:GetService("RunService").Stepped:Wait()
+		RunService.Stepped:Wait()
 	end
 end
 
-local FF = script.Parent:FindFirstChildOfClass("ForceField")
-if FF then
-	FF.Visible = false
-	CreateBoxes(FF)
+local ForceField = script.Parent:FindFirstChildOfClass("ForceField")
+
+if ForceField then
+	ForceField.Visible = false
+	CreateBoxes(ForceField)
 	CycleBoxes()
 end
 
-script.Parent.ChildAdded:Connect(function(child)
-	if child:IsA("ForceField") then
-		child.Visible = false
-		CreateBoxes(child)
+script.Parent.ChildAdded:Connect(function(Child)
+	if Child:IsA("ForceField") then
+		Child.Visible = false
+		CreateBoxes(Child)
 		CycleBoxes()
 	end
 end)

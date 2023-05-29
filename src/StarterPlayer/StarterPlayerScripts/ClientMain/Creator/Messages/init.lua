@@ -1,18 +1,20 @@
 local Messages = {}
 
 local Players = game:GetService("Players")
+
 local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer.PlayerGui
+
 local MessageLabel = script.MessageLabel
 
-function Messages:Show(Messsage: string, TimeShown: number)
-	local labelClone = MessageLabel:Clone()
-	labelClone.Parent = PlayerGui.MainGui.MainFrame
-	labelClone.Text = Messsage
+function Messages:Show(Messsage: string, Length: number)
+	local MesssageClone = MessageLabel:Clone()
+	MesssageClone.Parent = PlayerGui.MainGui.BypassFrame
+	MesssageClone.Text = Messsage
 
-	task.wait(TimeShown)
+	task.wait(Length)
 
-	labelClone:Destroy()
+	MesssageClone:Destroy()
 end
 
 return Messages

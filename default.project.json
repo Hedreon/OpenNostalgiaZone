@@ -27,7 +27,10 @@
         "$path": "src/StarterPlayer/StarterCharacterScripts"
       },
       "$properties": {
-        "GameSettingsAvatar": "R6"
+        "GameSettingsAvatar": "R6",
+        "HealthDisplayDistance": 0,
+        "NameDisplayDistance": 0,
+        "CameraMaxZoomDistance": 64
       },
       "$ignoreUnknownInstances": true
     },

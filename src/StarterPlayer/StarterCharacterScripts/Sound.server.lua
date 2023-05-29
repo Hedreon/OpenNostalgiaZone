@@ -41,18 +41,18 @@ Humanoid.Running:Connect(function()
 	end
 end)
 
-Humanoid.Jumping:Connect(function(state)
-	SoundState(state, Jumping)
+Humanoid.Jumping:Connect(function(State)
+	SoundState(State, Jumping)
 end)
 
-Humanoid.GettingUp:Connect(function(state)
-	SoundState(state, GettingUp)
+Humanoid.GettingUp:Connect(function(State)
+	SoundState(State, GettingUp)
 end)
 
-Humanoid.FreeFalling:Connect(function(state)
-	SoundState(state, FreeFalling)
+Humanoid.FreeFalling:Connect(function(State)
+	SoundState(State, FreeFalling)
 end)
 
-Humanoid.FallingDown:Connect(function(state)
-	SoundState(state, FallingDown)
+Humanoid.FallingDown:Connect(function(State)
+	SoundState(State, FallingDown)
 end)

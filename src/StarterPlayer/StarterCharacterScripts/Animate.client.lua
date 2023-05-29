@@ -17,9 +17,9 @@ local IsSeated = false
 
 -- Functions
 local function GetTool()
-	for _, tools in script.Parent:GetChildren() do
-		if tools:IsA("Tool") then
-			return tools
+	for _, Tools in script.Parent:GetChildren() do
+		if Tools:IsA("Tool") then
+			return Tools
 		end
 	end
 
@@ -27,9 +27,9 @@ local function GetTool()
 end
 
 local function GetToolAnimation(Tool: Tool)
-	for _, animation in Tool:GetChildren() do
-		if animation.Name == "toolanim" and animation:IsA("StringValue") then
-			return animation
+	for _, Animation in Tool:GetChildren() do
+		if Animation.Name == "toolanim" and Animation:IsA("StringValue") then
+			return Animation
 		end
 	end
 
@@ -39,7 +39,6 @@ end
 local function AnimateTool()
 	if ToolAnimation == "None" then
 		RightShoulder.DesiredAngle = 1.57
-
 		return
 	end
 
@@ -65,8 +64,8 @@ local function AnimateTool()
 end
 
 local function Move(Time)
-	local amplitude
-	local frequency
+	local Amplitude
+	local Frequency
 
 	if Pose == "Jumping" then
 		RightShoulder.MaxVelocity = 0.5
@@ -116,30 +115,30 @@ local function Move(Time)
 	LeftShoulder.MaxVelocity = 0.15
 
 	if Pose == "Running" then
-		amplitude = 1
-		frequency = 9
+		Amplitude = 1
+		Frequency = 9
 	else
-		amplitude = 0.1
-		frequency = 1
+		Amplitude = 0.1
+		Frequency = 1
 	end
 
-	local desiredAngle = amplitude * math.sin(Time * frequency)
+	local DesiredAngle = Amplitude * math.sin(Time * Frequency)
 
-	RightShoulder.DesiredAngle = desiredAngle
-	LeftShoulder.DesiredAngle = desiredAngle
-	RightHip.DesiredAngle = -desiredAngle
-	LeftHip.DesiredAngle = -desiredAngle
+	RightShoulder.DesiredAngle = DesiredAngle
+	LeftShoulder.DesiredAngle = DesiredAngle
+	RightHip.DesiredAngle = -DesiredAngle
+	LeftHip.DesiredAngle = -DesiredAngle
 
-	local tool = GetTool()
+	local Tool = GetTool()
 
-	if tool then
-		local animationStringObject = GetToolAnimation(tool)
+	if Tool then
+		local AnimationStringObject = GetToolAnimation(Tool)
 
-		if animationStringObject then
-			ToolAnimation = animationStringObject.Value
+		if AnimationStringObject then
+			ToolAnimation = AnimationStringObject.Value
 
-			-- Message recieved, delete StringValue
-			animationStringObject:Destroy()
+			-- Message recieved, destroy StringValue
+			AnimationStringObject:Destroy()
 
 			ToolAnimationTime = Time + 0.3
 		end
