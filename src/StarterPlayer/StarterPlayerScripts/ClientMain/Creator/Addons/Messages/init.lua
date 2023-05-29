@@ -7,7 +7,7 @@ local PlayerGui = LocalPlayer.PlayerGui
 
 local MessageLabel = script.MessageLabel
 
-function Messages:Show(Messsage: string, Length: number)
+function Messages:Create(Messsage: string, Length: number)
 	local MesssageClone = MessageLabel:Clone()
 	MesssageClone.Parent = PlayerGui.MainGui.BypassFrame
 	MesssageClone.Text = Messsage

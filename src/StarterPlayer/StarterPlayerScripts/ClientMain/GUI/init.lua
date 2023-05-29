@@ -11,6 +11,7 @@ local New = Fusion.New
 local Children = Fusion.Children
 
 local Creator = require(script.Parent.Creator)
+local TransparentFrame = require(script.Parent.Creator.Addons.TransparentFrame)
 
 function GUI:Initialize()
 	local _UI = New "ScreenGui" {
@@ -19,9 +20,8 @@ function GUI:Initialize()
 		ScreenInsets = Enum.ScreenInsets.None,
 
 		[Children] = {
-			New "Frame" {
+			TransparentFrame:Create {
 				Name = "MainFrame",
-				BackgroundTransparency = 1,
 				Size = UDim2.new(0.96, 0, 1, 0),
 				Position = UDim2.new(0.04, 0, 0, 0),
 
@@ -31,10 +31,8 @@ function GUI:Initialize()
 				}
 			},
 
-			New "Frame" {
+			TransparentFrame:Create {
 				Name = "BypassFrame",
-				BackgroundTransparency = 1,
-				Size = UDim2.new(1, 0, 1, 0),
 			},
 		}
 	}
