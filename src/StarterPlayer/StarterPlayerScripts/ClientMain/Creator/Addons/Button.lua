@@ -14,9 +14,10 @@ function Button:Create(Properties)
 		TextTransparency = 0.3,
 		TextStrokeColor3 = Color3.fromRGB(77, 77, 77),
 		TextStrokeTransparency = 0.9,
-		TextSize = 18,
+		TextSize = 20,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		FontFace = Font.new("rbxasset://fonts/families/LegacyArial.json", Enum.FontWeight.Bold, Enum.FontStyle.Italic),
+		AutoButtonColor = true,
 
 		Name = Properties.Name,
 		Text = Properties.Text,
