@@ -70,7 +70,7 @@ end
 function Creator:PlayerList()
 	return TransparentFrame:Create {
 		Name = "PlayerList",
-		Size = UDim2.new(0.2, 0, 0.96, 0),
+		Size = UDim2.new(0.1, 0, 0.96, 0),
 		AnchorPoint = Vector2.new(0.96, 0),
 		Position = UDim2.new(0.98, 0, 0.04, 0),
 
@@ -78,20 +78,20 @@ function Creator:PlayerList()
 			Label:Create {
 				Name = "TitleLabel",
 				Text = "Player List",
-				Size = UDim2.new(1, 0, 0.05, 0),
+				Size = UDim2.new(1, 0, 0.04, 0),
 			},
 
 			Label:Create {
 				Name = "SeparatorLabel",
 				Text = "",
-				Size = UDim2.new(1, 0, 0.05, 0),
-				Position = UDim2.new(0, 0, 0.05, 0),
+				Size = UDim2.new(1, 0, 0.04, 0),
+				Position = UDim2.new(0, 0, 0.04, 0),
 			},
 
 			Label:Create {
 				Name = "Template",
 				Text = "Player",
-				Size = UDim2.new(1, 0, 0.05, 0),
+				Size = UDim2.new(1, 0, 0.04, 0),
 				Position = UDim2.new(0, 0, 0.1, 0),
 				Visible = false
 			},

@@ -49,7 +49,8 @@ local function Adjust(Player)
 		Count = Count + 1
 
 		local Slot = Slots:FindFirstChild(Key)
-		local NewYPosition = 0.1 + 0.05 * (Count - 1)
+		local SlotSize = Slot.Size.Y.Scale
+		local NewYPosition = 0.1 + SlotSize * (Count - 1)
 
 		Slot.Position = UDim2.new(0, 0, NewYPosition, 0)
 		Slot.Visible = true
