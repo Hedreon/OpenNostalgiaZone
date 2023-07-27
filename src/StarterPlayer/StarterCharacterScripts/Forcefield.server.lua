@@ -1,30 +1,33 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local RunService = game:GetService("RunService")
+local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService: RunService = game:GetService("RunService")
 
-local Modules = ReplicatedStorage:FindFirstChild("Modules")
+local Boxes: {SelectionBox} = {}
 
-local Rainbow = require(Modules.Rainbow)
+local Modules: Instance? = ReplicatedStorage:WaitForChild("Modules")
+local Rainbow = if Modules then require(Modules:FindFirstChild("Rainbow")) else nil
 
-local Boxes = {}
-
-function CreateBoxes(ForceField)
-	for _, CharacterPart in script.Parent:GetChildren() do
-		if CharacterPart:IsA("BasePart") and CharacterPart.Name ~= "HumanoidRootPart" then
-			local Box = Instance.new("SelectionBox")
-			Box.Color3 = Color3.new(1, 0, 0)
-			Box.Adornee = CharacterPart
-			Box.Parent = ForceField
-
-			table.insert(Boxes, Box)
+function CreateBoxes(ForceField: Instance?)
+	if ForceField then
+		for _, Child: Instance in script.Parent:GetChildren() do
+			if Child:IsA("BasePart") and Child.Name ~= "HumanoidRootPart" then
+				local Box: SelectionBox = Instance.new("SelectionBox")
+				Box.Color3 = Color3.new(1, 0, 0)
+				Box.Adornee = Child
+				Box.Parent = ForceField
+	
+				table.insert(Boxes, Box)
+			end
 		end
+	else
+		warn("[Forcefield]", "Forcefield argument wasn't given!")
 	end
 end
 
 function CycleBoxes()
 	while true do
-		local NoBoxes = true
+		local NoBoxes: boolean = true
 
-		for Index, Box in Boxes do
+		for Index: number, Box: SelectionBox in Boxes do
 			if Box:IsDescendantOf(script.Parent) then
                 Rainbow:Rain(Box, tick() % 1)
 				NoBoxes = false
@@ -41,7 +44,7 @@ function CycleBoxes()
 	end
 end
 
-local ForceField = script.Parent:FindFirstChildOfClass("ForceField")
+local ForceField: ForceField? = script.Parent:FindFirstChildOfClass("ForceField")
 
 if ForceField then
 	ForceField.Visible = false
@@ -49,7 +52,7 @@ if ForceField then
 	CycleBoxes()
 end
 
-script.Parent.ChildAdded:Connect(function(Child)
+script.Parent.ChildAdded:Connect(function(Child: Instance)
 	if Child:IsA("ForceField") then
 		Child.Visible = false
 		CreateBoxes(Child)

@@ -1,12 +1,14 @@
 local Button = {}
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local Fusion = require(ReplicatedStorage.Packages.fusion)
-local New = Fusion.New
-local OnEvent = Fusion.OnEvent
+local Packages: Instance? = ReplicatedStorage:FindFirstChild("Packages")
 
-function Button:Create(Properties)
+local Fusion: any = if Packages then require(Packages:WaitForChild("fusion")) else nil
+local New: any = Fusion.New
+local OnEvent: any = Fusion.OnEvent
+
+function Button:Create(Properties: {Name: string, Text: string, Size: UDim2, Position: UDim2, OnClick: any})
 	return New "TextButton" {
 		BackgroundColor3 = Color3.fromRGB(163, 162, 165),
 		BackgroundTransparency = 0.5,
@@ -19,7 +21,7 @@ function Button:Create(Properties)
 		FontFace = Font.new("rbxasset://fonts/families/LegacyArial.json", Enum.FontWeight.Bold, Enum.FontStyle.Italic),
 		AutoButtonColor = true,
 
-		Name = Properties.Name,
+		Name = Properties.Name .. "Button",
 		Text = Properties.Text,
 		Size = Properties.Size,
 		Position = Properties.Position,

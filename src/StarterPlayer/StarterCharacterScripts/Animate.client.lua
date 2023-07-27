@@ -1,25 +1,25 @@
-local RunService = game:GetService("RunService")
+local RunService: RunService = game:GetService("RunService")
 
-local Humanoid = script.Parent:FindFirstChildOfClass("Humanoid")
-local Torso = script.Parent:WaitForChild("Torso")
+local Humanoid: Humanoid? = script.Parent:FindFirstChildOfClass("Humanoid")
+local Torso: Instance = script.Parent:WaitForChild("Torso")
 
-local RightShoulder = Torso:WaitForChild("Right Shoulder")
-local LeftShoulder = Torso:WaitForChild("Left Shoulder")
-local RightHip = Torso:WaitForChild("Right Hip")
-local LeftHip = Torso:WaitForChild("Left Hip")
+local RightShoulder: any = Torso:WaitForChild("Right Shoulder")
+local LeftShoulder: any = Torso:WaitForChild("Left Shoulder")
+local RightHip: any = Torso:WaitForChild("Right Hip")
+local LeftHip: any = Torso:WaitForChild("Left Hip")
 
-local Pose = "Standing"
+local Pose: string = "Standing"
 
-local ToolAnimation = "None"
-local ToolAnimationTime = 0
+local ToolAnimation: string = "None"
+local ToolAnimationTime: number = 0
 
-local IsSeated = false
+local IsSeated: boolean = false
 
 -- Functions
 local function GetTool()
-	for _, Tools in script.Parent:GetChildren() do
-		if Tools:IsA("Tool") then
-			return Tools
+	for _, Tool: Instance in script.Parent:GetChildren() do
+		if Tool:IsA("Tool") then
+			return Tool
 		end
 	end
 
@@ -27,7 +27,7 @@ local function GetTool()
 end
 
 local function GetToolAnimation(Tool: Tool)
-	for _, Animation in Tool:GetChildren() do
+	for _, Animation: Instance in Tool:GetChildren() do
 		if Animation.Name == "toolanim" and Animation:IsA("StringValue") then
 			return Animation
 		end
@@ -63,9 +63,9 @@ local function AnimateTool()
 	end
 end
 
-local function Move(Time)
-	local Amplitude
-	local Frequency
+local function Move(Time: number)
+	local Amplitude: number
+	local Frequency: number
 
 	if Pose == "Jumping" then
 		RightShoulder.MaxVelocity = 0.5
@@ -122,17 +122,17 @@ local function Move(Time)
 		Frequency = 1
 	end
 
-	local DesiredAngle = Amplitude * math.sin(Time * Frequency)
+	local DesiredAngle: number = Amplitude * math.sin(Time * Frequency)
 
 	RightShoulder.DesiredAngle = DesiredAngle
 	LeftShoulder.DesiredAngle = DesiredAngle
 	RightHip.DesiredAngle = -DesiredAngle
 	LeftHip.DesiredAngle = -DesiredAngle
 
-	local Tool = GetTool()
+	local Tool: Tool? = GetTool()
 
 	if Tool then
-		local AnimationStringObject = GetToolAnimation(Tool)
+		local AnimationStringObject: StringValue = GetToolAnimation(Tool)
 
 		if AnimationStringObject then
 			ToolAnimation = AnimationStringObject.Value
@@ -156,53 +156,55 @@ local function Move(Time)
 end
 
 -- Connections
-Humanoid.Running:Connect(function()
-	if IsSeated then
-		return
-	end
-
-	if Humanoid.MoveDirection ~= Vector3.new(0, 0, 0) then
-		Pose = "Running"
-	else
-		Pose = "Standing"
-	end
-end)
-
-Humanoid.Died:Connect(function()
-	Pose = "Dead"
-end)
-
-Humanoid.Jumping:Connect(function()
-	IsSeated = false
-	Pose = "Jumping"
-end)
-
-Humanoid.Climbing:Connect(function()
-	Pose = "Climbing"
-end)
-
-Humanoid.GettingUp:Connect(function()
-	Pose = "GettingUp"
-end)
-
-Humanoid.FreeFalling:Connect(function()
-	Pose = "FreeFall"
-end)
-
-Humanoid.FallingDown:Connect(function()
-	Pose = "FallingDown"
-end)
-
-Humanoid.Seated:Connect(function()
-	IsSeated = true
-	Pose = "Seated"
-end)
+if Humanoid then
+	Humanoid.Running:Connect(function()
+		if IsSeated then
+			return
+		end
+	
+		if Humanoid.MoveDirection ~= Vector3.new(0, 0, 0) then
+			Pose = "Running"
+		else
+			Pose = "Standing"
+		end
+	end)
+	
+	Humanoid.Died:Connect(function()
+		Pose = "Dead"
+	end)
+	
+	Humanoid.Jumping:Connect(function()
+		IsSeated = false
+		Pose = "Jumping"
+	end)
+	
+	Humanoid.Climbing:Connect(function()
+		Pose = "Climbing"
+	end)
+	
+	Humanoid.GettingUp:Connect(function()
+		Pose = "GettingUp"
+	end)
+	
+	Humanoid.FreeFalling:Connect(function()
+		Pose = "FreeFall"
+	end)
+	
+	Humanoid.FallingDown:Connect(function()
+		Pose = "FallingDown"
+	end)
+	
+	Humanoid.Seated:Connect(function()
+		IsSeated = true
+		Pose = "Seated"
+	end)
+end
 
 -- Main
-local NextTime = 0
+local NextTime: number = 0
 
 while script.Parent.Parent do
-	local Time = RunService.Stepped:Wait()
+	local Time: number = RunService.Stepped:Wait()
 
 	if Time > NextTime then
 		Move(Time)
