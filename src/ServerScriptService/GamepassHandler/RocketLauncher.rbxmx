@@ -2,7 +2,7 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Tool" referent="RBXE37C64347AD549EDB2500506B015A4D4">
+	<Item class="Tool" referent="RBX8B725F5AA9A1456DBED807D93222F0E0">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="CanBeDropped">false</bool>
@@ -59,18 +59,18 @@
 					<Y>71.6373138</Y>
 					<Z>13.9999847</Z>
 					<R00>0.999922335</R00>
-					<R01>-4.1706565e-07</R01>
-					<R02>0.012464311</R02>
+					<R01>-4.16817869e-07</R01>
+					<R02>0.0124643119</R02>
 					<R10>-0.0124643119</R10>
-					<R11>-1.46291157e-07</R11>
-					<R12>0.999922335</R12>
-					<R20>-4.15209826e-07</R20>
+					<R11>-1.16489375e-07</R11>
+					<R12>0.999922395</R12>
+					<R20>-4.15333517e-07</R20>
 					<R21>-1</R21>
-					<R22>-1.51478204e-07</R22>
+					<R22>-1.21675697e-07</R22>
 				</CFrame>
 			</OptionalCoordinateFrame>
 		</Properties>
-		<Item class="Part" referent="RBX0AE4FEC3A2C04E8F9C4B5A0A0A24B808">
+		<Item class="Part" referent="RBX8F77E8D833F64BAAB549240D83D94480">
 			<Properties>
 				<bool name="Anchored">false</bool>
 				<BinaryString name="AttributesSerialize"></BinaryString>
@@ -106,6 +106,7 @@
 				<PhysicalProperties name="CustomPhysicalProperties">
 					<CustomPhysics>false</CustomPhysics>
 				</PhysicalProperties>
+				<bool name="EnableFluidForces">false</bool>
 				<float name="FrontParamA">-0.5</float>
 				<float name="FrontParamB">0.5</float>
 				<token name="FrontSurface">0</token>
@@ -164,7 +165,7 @@
 					<Z>0.839999795</Z>
 				</Vector3>
 			</Properties>
-			<Item class="SpecialMesh" referent="RBXA6771D88831C436EA04E3D8976B2E20F">
+			<Item class="SpecialMesh" referent="RBX1B1555C8A2074514BE90069674CE2286">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<Content name="MeshId"><url>rbxasset://fonts/rocketlauncher.mesh</url></Content>
@@ -191,7 +192,7 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="LocalScript" referent="RBX0FA02BD731764256ADBA6CB8B495DC5D">
+		<Item class="LocalScript" referent="RBX4BCA308A839E42A8817CAA33BF922470">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<bool name="Disabled">false</bool>
@@ -230,7 +231,7 @@ Tool.Changed:Connect(OnChanged)
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
-		<Item class="RemoteFunction" referent="RBXDD375F63DB674FC485ED030EA4B61FA1">
+		<Item class="RemoteFunction" referent="RBXD649F417B0A24487BD4A7EED1227F097">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">MouseLoc</string>
@@ -238,7 +239,7 @@ Tool.Changed:Connect(OnChanged)
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
-		<Item class="LocalScript" referent="RBX7514C7EE2AB44D7A87A00F003070E9C2">
+		<Item class="LocalScript" referent="RBX76DAD1571D1B40689708E66D6CCE01E7">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<bool name="Disabled">false</bool>
@@ -259,7 +260,7 @@ end]]></ProtectedString>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
-		<Item class="Script" referent="RBX170AC8DF7230475E9D52E1B3D809322B">
+		<Item class="Script" referent="RBXF9B815F7347048C492087BE75CE692B1">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<bool name="Disabled">false</bool>
@@ -379,7 +380,7 @@ Tool.Activated:Connect(OnActivated)
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Sound" referent="RBXC39DED09B4054EE383F969E38DD589F9">
+			<Item class="Sound" referent="RBX34C1A097A7F249899AD5CE1D13EEC94A">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<float name="EmitterSize">10</float>
@@ -401,7 +402,7 @@ Tool.Activated:Connect(OnActivated)
 					<float name="xmlRead_MaxDistance_3">10000</float>
 				</Properties>
 			</Item>
-			<Item class="Script" referent="RBX4CC35F8C1BBC437880E6A36722CA8C74">
+			<Item class="Script" referent="RBX378AA1A5C33A49C08AF91F38FB677997">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<bool name="Disabled">true</bool>
@@ -568,7 +569,7 @@ Rocket.Touched:Connect(OnTouched)
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="Sound" referent="RBX6C26325F1245462680BC369D6B5AEEFA">
+			<Item class="Sound" referent="RBX83185021465242E7B60C14074370C966">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<float name="EmitterSize">10</float>
@@ -590,49 +591,6 @@ Rocket.Touched:Connect(OnTouched)
 					<float name="xmlRead_MaxDistance_3">10000</float>
 				</Properties>
 			</Item>
-		</Item>
-		<Item class="Camera" referent="RBX936F911A1EEA4ABEAC72EEE61ABF57E2">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<CoordinateFrame name="CFrame">
-					<X>-239.948578</X>
-					<Y>72.3676605</Y>
-					<Z>12.4248314</Z>
-					<R00>-0.593644559</R00>
-					<R01>-0.319559604</R01>
-					<R02>0.738558054</R02>
-					<R10>-0</R10>
-					<R11>0.91777432</R11>
-					<R12>0.397102922</R12>
-					<R20>-0.804727435</R20>
-					<R21>0.235737994</R21>
-					<R22>-0.544831634</R22>
-				</CoordinateFrame>
-				<Ref name="CameraSubject">null</Ref>
-				<token name="CameraType">0</token>
-				<float name="FieldOfView">70</float>
-				<token name="FieldOfViewMode">0</token>
-				<CoordinateFrame name="Focus">
-					<X>-241.42572</X>
-					<Y>71.5734406</Y>
-					<Z>13.514514</Z>
-					<R00>1</R00>
-					<R01>0</R01>
-					<R02>0</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>0</R20>
-					<R21>0</R21>
-					<R22>1</R22>
-				</CoordinateFrame>
-				<bool name="HeadLocked">true</bool>
-				<float name="HeadScale">1</float>
-				<string name="Name">ThumbnailCamera</string>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-				<bool name="VRTiltAndRollEnabled">false</bool>
-			</Properties>
 		</Item>
 	</Item>
 	<SharedStrings>
