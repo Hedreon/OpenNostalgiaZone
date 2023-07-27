@@ -7,13 +7,13 @@ local Sequence: ColorSequence = ColorSequence.new({
 })
 
 local function LerpSequence(Sequence: ColorSequence, Speed: number)
-	local KeyPoints = Sequence.Keypoints
+	local KeyPoints: {ColorSequenceKeypoint} = Sequence.Keypoints
 	
-	for Key, Value in KeyPoints do
+	for Key: number, Value: ColorSequenceKeypoint in KeyPoints do
 		if Value.Time > Speed then
-			local Difference = Value.Time - KeyPoints[Key - 1].Time
-			local Sepparation = Value.Time - Speed
-			local Proportion = Sepparation / Difference
+			local Difference: number = Value.Time - KeyPoints[Key - 1].Time
+			local Sepparation: number = Value.Time - Speed
+			local Proportion: number = Sepparation / Difference
 			
 			return KeyPoints[Key - 1].Value:Lerp(Value.Value, Proportion)
 		end

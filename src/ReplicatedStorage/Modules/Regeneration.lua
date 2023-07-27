@@ -1,9 +1,9 @@
 local Regeneration = {}
 
 function Regeneration:Regenerate(Clone: Instance, CloneLocation: Instance)
-	for _, Children in CloneLocation:GetDescendants() do
-		if Children.Name == Clone.Name and Children:IsA("Model") then
-			Children:Destroy()
+	for _, Descendant: Instance in CloneLocation:GetDescendants() do
+		if Descendant.Name == Clone.Name and Descendant:IsA("Model") then
+			Descendant:Destroy()
 		end
 	end
 

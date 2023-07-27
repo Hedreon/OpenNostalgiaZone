@@ -23,9 +23,10 @@ function Creator:ControlBar()
 
 		[Children] = {
 			Button:Create {
-				Name = "HelpButton",
+				Name = "Help",
 				Text = "Help...",
 				Size = UDim2.new(0.125, 0, 1, 0),
+				Position = UDim2.new(0, 0, 0, 0),
 
 				OnClick = function()
 					if not ClickDebounce then
@@ -38,7 +39,7 @@ function Creator:ControlBar()
 			},
 
 			Button:Create {
-				Name = "FullscreenButton",
+				Name = "Fullscreen",
 				Text = "Fullscreen",
 				Size = UDim2.new(0.125, 0, 1, 0),
 				Position = UDim2.new(0.125, 0, 0, 0),
@@ -54,7 +55,7 @@ function Creator:ControlBar()
 			},
 
 			Button:Create {
-				Name = "ExitButton",
+				Name = "Exit",
 				Text = "Exit",
 				Size = UDim2.new(0.125, 0, 1, 0),
 				Position = UDim2.new(0.25, 0, 0, 0),
