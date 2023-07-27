@@ -5,9 +5,7 @@ local GUI = require(script.Parent)
 local PlayerList: Instance? = GUI:Find("PlayerList")
 local Template: Instance? = if PlayerList then PlayerList:FindFirstChild("Template") else nil
 
---local ListOfPlayers: {string} = {}
-
-local function CreateEntry(Player: Player | Instance)
+local function CreateEntry(Player: Player)
 	if PlayerList and Template then
 		local AssignedColor: Instance = Player:WaitForChild("AssignedColor")
 		local ListEntry: Instance? = Template:Clone()
@@ -23,8 +21,7 @@ local function CreateEntry(Player: Player | Instance)
 end
 
 local function AddPlayer()
-	for _, Player in Players:GetChildren() do
-		--table.insert(ListOfPlayers, Player)
+	for _, Player: Player in Players:GetPlayers() do
 		CreateEntry(Player)
 	end
 end
@@ -34,8 +31,6 @@ AddPlayer()
 Players.PlayerRemoving:Connect(function(Player: Player)
 	if PlayerList then
 		local FoundEntry: Instance? = PlayerList:FindFirstChild(Player.Name)
-
-		--table.remove(ListOfPlayers, Player)
 
 		if FoundEntry then
 			FoundEntry:Destroy()
