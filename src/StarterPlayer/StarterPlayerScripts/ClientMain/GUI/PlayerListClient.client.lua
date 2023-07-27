@@ -20,13 +20,13 @@ local function CreateEntry(Player: Player)
 	end
 end
 
-local function AddPlayer()
-	for _, Player: Player in Players:GetPlayers() do
-		CreateEntry(Player)
-	end
+for _, Player: Player in Players:GetPlayers() do
+	CreateEntry(Player)
 end
 
-AddPlayer()
+Players.PlayerAdded:Connect(function(Player: Player)
+	CreateEntry(Player)
+end)
 
 Players.PlayerRemoving:Connect(function(Player: Player)
 	if PlayerList then
