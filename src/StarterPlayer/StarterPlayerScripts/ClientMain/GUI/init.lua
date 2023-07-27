@@ -1,20 +1,22 @@
 local GUI = {}
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Players = game:GetService("Players")
+local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players: Players = game:GetService("Players")
 
-local LocalPlayer = Players.LocalPlayer
-local PlayerGui = LocalPlayer.PlayerGui
+local LocalPlayer: Player? = Players.LocalPlayer
+local PlayerGui: PlayerGui? = if LocalPlayer then LocalPlayer:FindFirstChildOfClass("PlayerGui") else nil
 
-local Fusion = require(ReplicatedStorage.Packages.fusion)
-local New = Fusion.New
-local Children = Fusion.Children
+local Packages: Instance? = ReplicatedStorage:FindFirstChild("Packages")
+
+local Fusion: any = if Packages then require(Packages:WaitForChild("fusion")) else nil
+local New: any = Fusion.New
+local Children: any = Fusion.Children
 
 local Creator = require(script.Parent.Creator)
 local TransparentFrame = require(script.Parent.Creator.Addons.TransparentFrame)
 
 function GUI:Initialize()
-	local _UI = New "ScreenGui" {
+	local _UI: any = New "ScreenGui" {
 		Name = "MainGui",
 		Parent = PlayerGui,
 		ScreenInsets = Enum.ScreenInsets.None,
@@ -40,13 +42,15 @@ function GUI:Initialize()
 end
 
 function GUI:Find(Name: string)
-	local MainGui = PlayerGui:WaitForChild("MainGui")
+	if PlayerGui then
+		local MainGui: Instance = PlayerGui:WaitForChild("MainGui")
 	
-    for _, Descendant in MainGui:GetDescendants() do
-		if Descendant.Name == Name then
-			return Descendant
+		for _, Descendant: Instance in MainGui:GetDescendants() do
+			if Descendant.Name == Name then
+				return Descendant
+			end
 		end
-    end
+	end
 
 	return nil
 end

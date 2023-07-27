@@ -10,9 +10,9 @@ local Children = Fusion.Children
 
 local TransparentFrame = require(script.Addons.TransparentFrame)
 local Button = require(script.Addons.Button)
-local Folder = require(script.Addons.Folder)
 local Message = require(script.Addons.Message)
 local Label = require(script.Addons.Label)
+local ListLayout = require(script.Addons.ListLayout)
 
 local ClickDebounce = false
 
@@ -92,11 +92,10 @@ function Creator:PlayerList()
 				Name = "Template",
 				Text = "Player",
 				Size = UDim2.new(1, 0, 0.04, 0),
-				Position = UDim2.new(0, 0, 0.1, 0),
 				Visible = false
 			},
 
-			Folder:Create("Slots")
+			ListLayout:Create()
 		}
 	}
 end

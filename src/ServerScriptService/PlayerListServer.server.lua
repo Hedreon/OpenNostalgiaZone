@@ -1,6 +1,6 @@
-local Players = game:GetService("Players")
+local Players: Players = game:GetService("Players")
 
-local Colors = {
+local Colors: {Color3} = {
 	Color3.fromRGB(255, 255, 153),
 	Color3.fromRGB(0, 0, 204),
 	Color3.fromRGB(255, 255, 0),
@@ -12,15 +12,16 @@ local Colors = {
 }
 
 local function ApplyRandomColor()
-	for _, Value in Colors do
+	for _, Value: Color3 in Colors do
 		return Colors[math.random(1, #Colors)]
 	end
 
 	return nil
 end
 
-Players.PlayerAdded:Connect(function(Player)
-	local AssignedColor = Instance.new("Color3Value", Player)
+Players.PlayerAdded:Connect(function(Player: Player)
+	local AssignedColor: Color3Value = Instance.new("Color3Value")
 	AssignedColor.Name = "AssignedColor"
 	AssignedColor.Value = ApplyRandomColor()
+	AssignedColor.Parent = Player
 end)

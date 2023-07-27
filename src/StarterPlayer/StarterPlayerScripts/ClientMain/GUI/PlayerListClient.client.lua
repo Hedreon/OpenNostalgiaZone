@@ -1,68 +1,44 @@
-local Players = game:GetService("Players")
+local Players: Players = game:GetService("Players")
 
 local GUI = require(script.Parent)
 
-local Frame = GUI:Find("PlayerList")
-local Slots = Frame.Slots
-local Template = Frame.Template
+local PlayerList: Instance? = GUI:Find("PlayerList")
+local Template: Instance? = if PlayerList then PlayerList:FindFirstChild("Template") else nil
 
-local PlayerTable = {}
+local ListOfPlayers: {string} = {}
 
-local function Clean(Slot)
-	Slot:Destroy()
-end
+local function CreateEntry(Player: Player | Instance)
+	if PlayerList and Template then
+		local AssignedColor: Instance = Player:WaitForChild("AssignedColor")
+		local ListEntry: Instance? = Template:Clone()
 
-local function Remove(Player)
-	if Player then
-		PlayerTable[Player] = nil
-
-		local Slot = Slots:FindFirstChild(Player)
-		local Wrap = coroutine.wrap(Clean)
-
-		Wrap(Slot)
-	end
-end
-
-local function Add()
-	local Children = Players:GetChildren()
-
-	for Child = 1, #Children do
-		if not PlayerTable[Children[Child].Name] then
-			PlayerTable[Children[Child].Name] = 1
-
-			local TemplateClone = Template:Clone()
-			TemplateClone.Name = Children[Child].Name
-			TemplateClone.Text = TemplateClone.Name
-			TemplateClone.TextColor3 = Children[Child]:WaitForChild("AssignedColor").Value
-			TemplateClone.Parent = Slots
+		if AssignedColor:IsA("Color3Value") and ListEntry and ListEntry:IsA("TextLabel") then
+			ListEntry.Name = Player.Name
+			ListEntry.Text = ListEntry.Name
+			ListEntry.TextColor3 = AssignedColor.Value
+			ListEntry.Visible = true
+			ListEntry.Parent = PlayerList
 		end
 	end
 end
 
-local function Adjust(Player)
-	Add()
-	Remove(Player)
-
-	local Count = 0
-
-	for Key, Value in PlayerTable do
-		Count = Count + 1
-
-		local Slot = Slots:FindFirstChild(Key)
-		local SlotSize = Slot.Size.Y.Scale
-		local NewYPosition = 0.1 + SlotSize * (Count - 1)
-
-		Slot.Position = UDim2.new(0, 0, NewYPosition, 0)
-		Slot.Visible = true
+local function AddPlayer()
+	for _, Player in Players:GetChildren() do
+		table.insert(ListOfPlayers, Player)
+		CreateEntry(Player)
 	end
 end
 
-Players.PlayerAdded:Connect(function()
-	Adjust(nil)
-end)
+AddPlayer()
 
 Players.PlayerRemoving:Connect(function(Player)
-	Adjust(Player.Name)
-end)
+	if PlayerList then
+		local FoundEntry: Instance? = PlayerList:FindFirstChild(Player.Name)
 
-Adjust()
+		table.remove(ListOfPlayers, Player)
+
+		if FoundEntry then
+			FoundEntry:Destroy()
+		end
+	end
+end)

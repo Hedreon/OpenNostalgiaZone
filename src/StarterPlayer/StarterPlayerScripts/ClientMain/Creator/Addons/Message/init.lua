@@ -1,20 +1,22 @@
 local Message = {}
 
-local Players = game:GetService("Players")
+local Players: Players = game:GetService("Players")
 
-local LocalPlayer = Players.LocalPlayer
-local PlayerGui = LocalPlayer.PlayerGui
+local LocalPlayer: Player? = Players.LocalPlayer
+local PlayerGui: PlayerGui? = if LocalPlayer then LocalPlayer:FindFirstChildOfClass("PlayerGui") else nil
 
-local MessageLabel = script.MessageLabel
+local MessageLabel: TextLabel = script.MessageLabel
 
 function Message:Create(Messsage: string, Length: number)
-	local MesssageClone = MessageLabel:Clone()
-	MesssageClone.Parent = PlayerGui.MainGui.BypassFrame
-	MesssageClone.Text = Messsage
+	if PlayerGui then
+		local MesssageClone: TextLabel = MessageLabel:Clone()
+		MesssageClone.Text = Messsage
+		MesssageClone.Parent = PlayerGui:WaitForChild("MainGui"):FindFirstChild("BypassFrame")
 
-	task.wait(Length)
+		task.wait(Length)
 
-	MesssageClone:Destroy()
+		MesssageClone:Destroy()
+	end
 end
 
 return Message

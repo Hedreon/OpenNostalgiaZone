@@ -1,6 +1,6 @@
 local Regeneration = {}
 
-function Regeneration:Regenerate(Clone, CloneLocation)
+function Regeneration:Regenerate(Clone: Instance, CloneLocation: Instance)
 	for _, Children in CloneLocation:GetDescendants() do
 		if Children.Name == Clone.Name and Children:IsA("Model") then
 			Children:Destroy()
@@ -9,7 +9,7 @@ function Regeneration:Regenerate(Clone, CloneLocation)
 
 	task.wait(0.5)
 	
-	local RegenClone = Clone:Clone()
+	local RegenClone: Instance = Clone:Clone()
 	RegenClone.Parent = CloneLocation
 end
 
