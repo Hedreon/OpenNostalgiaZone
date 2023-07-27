@@ -26,4 +26,4 @@ Open Nostalgia Zone (ONZ) adds 2 simulations; the 2006 simulation and the 2016 s
 
 	to install all the necessary packages and dependencies needed for the game to properly work.
 
-4. Click on **Rojo** in the Activity Bar down the bottom then follow all the on-screen steps to build the compiled `.rbxl` file.
+4. Click on **Rojo** in the Activity Bar then follow all the on-screen steps to build and serve the `.rbxl` file.
