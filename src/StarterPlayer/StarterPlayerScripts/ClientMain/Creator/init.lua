@@ -77,22 +77,26 @@ function Creator:PlayerList()
 
 		[Children] = {
 			Label:Create {
-				Name = "TitleLabel",
+				Name = "Title",
 				Text = "Player List",
 				Size = UDim2.new(1, 0, 0.04, 0),
+				Position = UDim2.new(0, 0, 0, 0),
+				Visible = true
 			},
 
 			Label:Create {
-				Name = "SeparatorLabel",
+				Name = "Separator",
 				Text = "",
 				Size = UDim2.new(1, 0, 0.04, 0),
-				Position = UDim2.new(0, 0, 0.04, 0),
+				Position = UDim2.new(0, 0, 0, 0),
+				Visible = true
 			},
 
 			Label:Create {
 				Name = "Template",
 				Text = "Player",
 				Size = UDim2.new(1, 0, 0.04, 0),
+				Position = UDim2.new(0, 0, 0, 0),
 				Visible = false
 			},
 

@@ -3,7 +3,7 @@ local Players: Players = game:GetService("Players")
 local GUI = require(script.Parent)
 
 local PlayerList: Instance? = GUI:Find("PlayerList")
-local Template: Instance? = if PlayerList then PlayerList:FindFirstChild("Template") else nil
+local Template: Instance? = if PlayerList then PlayerList:FindFirstChild("TemplateLabel") else nil
 
 local function CreateEntry(Player: Player)
 	if PlayerList and Template then

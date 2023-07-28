@@ -1,5 +1,5 @@
 -- Functions
-local function CreateSound(Name: string, ID: string, Looped: boolean): Sound
+local function CreateSound(Name: string, ID: string, Looped: boolean)
 	local Sound = Instance.new("Sound")
 	Sound.Name = Name
 	Sound.SoundId = ID

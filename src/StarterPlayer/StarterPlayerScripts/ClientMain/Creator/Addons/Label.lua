@@ -1,11 +1,13 @@
 local Label = {}
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local Fusion = require(ReplicatedStorage.Packages.fusion)
-local New = Fusion.New
+local Packages: Instance? = ReplicatedStorage:FindFirstChild("Packages")
 
-function Label:Create(Properties)
+local Fusion: any = if Packages then require(Packages:WaitForChild("fusion")) else nil
+local New: any = Fusion.New
+
+function Label:Create(Properties: {Name: string, Text: string, Size: UDim2, Position: UDim2, Visible: boolean})
 	return New "TextLabel" {
 		BackgroundColor3 = Color3.fromRGB(163, 162, 165),
 		BackgroundTransparency = 0.5,
@@ -14,7 +16,7 @@ function Label:Create(Properties)
 		TextScaled = true,
 		TextXAlignment = Enum.TextXAlignment.Left,
 
-		Name = Properties.Name,
+		Name = Properties.Name .. "Label",
 		Text = Properties.Text,
 		Size = Properties.Size,
 		Position = Properties.Position,
