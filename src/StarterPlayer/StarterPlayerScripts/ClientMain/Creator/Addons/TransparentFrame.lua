@@ -12,7 +12,7 @@ function TransparentFrame:Create(Properties: {Name: string, Size: UDim2, AnchorP
 	return New "Frame" {
 		BackgroundTransparency = 1,
 
-		Name = Properties.Name,
+		Name = Properties.Name .. "Frame",
 		Size = Properties.Size,
 		AnchorPoint = Properties.AnchorPoint,
 		Position = Properties.Position,

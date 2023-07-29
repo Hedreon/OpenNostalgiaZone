@@ -23,18 +23,18 @@ function GUI:Initialize()
 
 		[Children] = {
 			TransparentFrame:Create {
-				Name = "MainFrame",
+				Name = "Main",
 				Size = UDim2.new(0.96, 0, 1, 0),
 				Position = UDim2.new(0.04, 0, 0, 0),
 
 				[Children] = {
-					Creator:ControlBar(),
-					Creator:PlayerList()
+					Creator:ControlFrame(),
+					Creator:ListFrame()
 				}
 			},
 
 			TransparentFrame:Create {
-				Name = "BypassFrame",
+				Name = "Bypass",
 				Size = UDim2.new(1, 0, 1, 0),
 				AnchorPoint = Vector2.new(0, 0),
 				Position = UDim2.new(0, 0, 0, 0)

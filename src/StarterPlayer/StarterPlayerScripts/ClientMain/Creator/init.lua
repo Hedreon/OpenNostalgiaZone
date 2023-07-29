@@ -18,9 +18,9 @@ local Message = require(script.Addons.Message)
 local Label = require(script.Addons.Label)
 local ListLayout = require(script.Addons.ListLayout)
 
-function Creator:ControlBar()
+function Creator:ControlFrame()
 	return TransparentFrame:Create {
-		Name = "ControlBar",
+		Name = "Control",
 		Size = UDim2.new(1, 0, 0.04, 0),
 
 		[Children] = {
@@ -72,9 +72,9 @@ function Creator:ControlBar()
 	}
 end
 
-function Creator:PlayerList()
+function Creator:ListFrame()
 	return TransparentFrame:Create {
-		Name = "PlayerList",
+		Name = "List",
 		Size = UDim2.new(0.1, 0, 0.96, 0),
 		AnchorPoint = Vector2.new(0.96, 0),
 		Position = UDim2.new(0.98, 0, 0.04, 0),

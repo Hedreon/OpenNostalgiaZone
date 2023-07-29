@@ -2,11 +2,11 @@ local Players: Players = game:GetService("Players")
 
 local GUI = require(script.Parent)
 
-local PlayerList: Instance? = GUI:Find("PlayerList")
-local Template: Instance? = if PlayerList then PlayerList:FindFirstChild("TemplateLabel") else nil
+local ListFrame: Instance? = GUI:Find("ListFrame")
+local Template: Instance? = if ListFrame then ListFrame:FindFirstChild("TemplateLabel") else nil
 
 local function CreateEntry(Player: Player)
-	if PlayerList and Template then
+	if ListFrame and Template then
 		local AssignedColor: Instance = Player:WaitForChild("AssignedColor")
 		local ListEntry: Instance? = Template:Clone()
 
@@ -15,7 +15,7 @@ local function CreateEntry(Player: Player)
 			ListEntry.Text = ListEntry.Name
 			ListEntry.TextColor3 = AssignedColor.Value
 			ListEntry.Visible = true
-			ListEntry.Parent = PlayerList
+			ListEntry.Parent = ListFrame
 		end
 	end
 end
@@ -29,8 +29,8 @@ for _, Player: Player in Players:GetPlayers() do
 end
 
 Players.PlayerRemoving:Connect(function(Player: Player)
-	if PlayerList then
-		local FoundEntry: Instance? = PlayerList:FindFirstChild(Player.Name)
+	if ListFrame then
+		local FoundEntry: Instance? = ListFrame:FindFirstChild(Player.Name)
 
 		if FoundEntry then
 			FoundEntry:Destroy()
