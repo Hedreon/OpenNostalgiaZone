@@ -1,20 +1,22 @@
 local Creator = {}
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Players = game:GetService("Players")
+local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players: Players = game:GetService("Players")
 
-local LocalPlayer = Players.LocalPlayer
+local LocalPlayer: Player? = Players.LocalPlayer
 
-local Fusion = require(ReplicatedStorage.Packages.fusion)
-local Children = Fusion.Children
+local Packages: Instance? = ReplicatedStorage:FindFirstChild("Packages")
+
+local Fusion: any = if Packages then require(Packages:WaitForChild("fusion")) else nil
+local Children: any = Fusion.Children
+
+local ClickDebounce: boolean = false
 
 local TransparentFrame = require(script.Addons.TransparentFrame)
 local Button = require(script.Addons.Button)
 local Message = require(script.Addons.Message)
 local Label = require(script.Addons.Label)
 local ListLayout = require(script.Addons.ListLayout)
-
-local ClickDebounce = false
 
 function Creator:ControlBar()
 	return TransparentFrame:Create {
@@ -61,7 +63,9 @@ function Creator:ControlBar()
 				Position = UDim2.new(0.25, 0, 0, 0),
 
 				OnClick = function()
-					LocalPlayer:Kick('You "exited" the game.')
+					if LocalPlayer then
+						LocalPlayer:Kick('You "exited" the game.')
+					end
 				end
 			}
 		}
