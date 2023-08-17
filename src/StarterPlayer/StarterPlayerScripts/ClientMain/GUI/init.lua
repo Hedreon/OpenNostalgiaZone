@@ -13,7 +13,6 @@ local New: any = Fusion.New
 local Children: any = Fusion.Children
 
 local Creator = require(script.Parent.Creator)
-local ChatBox = require(script.Parent.Creator.Addons.ChatBox)
 local TransparentFrame = require(script.Parent.Creator.Addons.TransparentFrame)
 
 function GUI:Initialize()
@@ -41,7 +40,7 @@ function GUI:Initialize()
 				Position = UDim2.new(0, 0, 0, 0),
 
 				[Children] = {
-					ChatBox:Create()
+					Creator:ChatBox()
 				}
 			}
 		}

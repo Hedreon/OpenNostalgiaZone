@@ -8,11 +8,7 @@ local Fusion: any = if Packages then require(Packages:WaitForChild("fusion")) el
 local New: any = Fusion.New
 local OnEvent: any = Fusion.OnEvent
 
-local GUI = require(script.Parent.Parent.Parent.GUI)
-
-local ChatBoxObject = GUI:Find("ChatBox")
-
-function ChatBox:Create()
+function ChatBox:Create(Properties: {OnFocus: any})
 	return New "TextBox" {
 		AnchorPoint = Vector2.new(0, 1),
 		BackgroundColor3 = Color3.fromRGB(64, 64, 64),
@@ -26,11 +22,7 @@ function ChatBox:Create()
 		TextScaled = true,
 		TextXAlignment = Enum.TextXAlignment.Left,
 
-		[OnEvent "FocusLost"] = function(Enter)
-			if Enter then
-				ChatBoxObject.Text = ""
-			end
-		end
+		[OnEvent "FocusLost"] = Properties.OnFocus
 	}
 end
 

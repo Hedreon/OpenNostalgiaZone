@@ -15,8 +15,11 @@ local ClickDebounce: boolean = false
 local TransparentFrame = require(script.Addons.TransparentFrame)
 local Button = require(script.Addons.Button)
 local Message = require(script.Addons.Message)
+local ChatBox = require(script.Addons.ChatBox)
 local Label = require(script.Addons.Label)
 local ListLayout = require(script.Addons.ListLayout)
+
+local GUI = require(script.Parent.GUI)
 
 function Creator:ControlFrame()
 	return TransparentFrame:Create {
@@ -106,6 +109,19 @@ function Creator:ListFrame()
 
 			ListLayout:Create()
 		}
+	}
+end
+
+function Creator:ChatBox(GUIFind)
+	return ChatBox:Create {
+		OnFocus = function(Enter)
+			if Enter then
+				local ChatBoxObject = GUI:Find("ChatBox")
+
+				ChatBoxObject.Text = ""
+				print("Not fully developed yet!")
+			end
+		end
 	}
 end
 
