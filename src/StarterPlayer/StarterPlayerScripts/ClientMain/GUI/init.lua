@@ -13,6 +13,7 @@ local New: any = Fusion.New
 local Children: any = Fusion.Children
 
 local Creator = require(script.Parent.Creator)
+local ChatBox = require(script.Parent.Creator.Addons.ChatBox)
 local TransparentFrame = require(script.Parent.Creator.Addons.TransparentFrame)
 
 function GUI:Initialize()
@@ -37,7 +38,11 @@ function GUI:Initialize()
 				Name = "Bypass",
 				Size = UDim2.new(1, 0, 1, 0),
 				AnchorPoint = Vector2.new(0, 0),
-				Position = UDim2.new(0, 0, 0, 0)
+				Position = UDim2.new(0, 0, 0, 0),
+
+				[Children] = {
+					ChatBox:Create()
+				}
 			}
 		}
 	}

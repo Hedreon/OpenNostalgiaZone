@@ -1,4 +1,4 @@
-local TextBox = {}
+local ChatBox = {}
 
 local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -8,10 +8,15 @@ local Fusion: any = if Packages then require(Packages:WaitForChild("fusion")) el
 local New: any = Fusion.New
 local OnEvent: any = Fusion.OnEvent
 
-function TextBox:Create(Properties: {Name: string, OnEnter: any})
+local GUI = require(script.Parent.Parent.Parent.GUI)
+
+local ChatBoxObject = GUI:Find("ChatBox")
+
+function ChatBox:Create()
 	return New "TextBox" {
 		AnchorPoint = Vector2.new(0, 1),
 		BackgroundColor3 = Color3.fromRGB(64, 64, 64),
+		Name = "ChatBox",
 		Position = UDim2.new(0, 0, 1, 0),
 		Size = UDim2.new(1, 0, 0.05, 0),
 		FontFace = Font.new("rbxasset://fonts/families/LegacyArial.json", Enum.FontWeight.Regular, Enum.FontStyle.Italic),
@@ -21,10 +26,12 @@ function TextBox:Create(Properties: {Name: string, OnEnter: any})
 		TextScaled = true,
 		TextXAlignment = Enum.TextXAlignment.Left,
 
-		Name = Properties.Name .. "Box",
-
-		[OnEvent "FocusLost"] = Properties.OnEnter
+		[OnEvent "FocusLost"] = function(Enter)
+			if Enter then
+				ChatBoxObject.Text = ""
+			end
+		end
 	}
 end
 
-return TextBox
+return ChatBox
