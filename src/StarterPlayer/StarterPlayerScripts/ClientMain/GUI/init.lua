@@ -40,7 +40,7 @@ function GUI:Initialize()
 				Position = UDim2.new(0, 0, 0, 0),
 
 				[Children] = {
-					Creator:ChatBox()
+					Creator:ChatBox(GUI)
 				}
 			}
 		}

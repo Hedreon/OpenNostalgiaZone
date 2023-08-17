@@ -19,8 +19,6 @@ local ChatBox = require(script.Addons.ChatBox)
 local Label = require(script.Addons.Label)
 local ListLayout = require(script.Addons.ListLayout)
 
-local GUI = require(script.Parent.GUI)
-
 function Creator:ControlFrame()
 	return TransparentFrame:Create {
 		Name = "Control",
@@ -112,7 +110,7 @@ function Creator:ListFrame()
 	}
 end
 
-function Creator:ChatBox(GUIFind)
+function Creator:ChatBox(GUI)
 	return ChatBox:Create {
 		OnFocus = function(Enter)
 			if Enter then
