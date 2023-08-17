@@ -64,7 +64,7 @@ function Creator:ControlFrame()
 
 				OnClick = function()
 					if LocalPlayer then
-						LocalPlayer:Kick('You "exited" the game.')
+						LocalPlayer:Kick("You \"exited\" the game.")
 					end
 				end
 			}
