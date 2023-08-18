@@ -1,4 +1,4 @@
-local TransparentFrame = {}
+local ContainerFrame = {}
 
 local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -8,7 +8,7 @@ local Fusion: any = if Packages then require(Packages:WaitForChild("fusion")) el
 local New: any = Fusion.New
 local Children: any = Fusion.Children
 
-function TransparentFrame:Create(Properties: {Name: string, Size: UDim2, AnchorPoint: Vector2, Position: UDim2, [any]: any})
+function ContainerFrame:Create(Properties: {Name: string, Size: UDim2, AnchorPoint: Vector2, Position: UDim2, [any]: any})
 	return New "Frame" {
 		BackgroundTransparency = 1,
 
@@ -21,4 +21,4 @@ function TransparentFrame:Create(Properties: {Name: string, Size: UDim2, AnchorP
 	}
 end
 
-return TransparentFrame
+return ContainerFrame

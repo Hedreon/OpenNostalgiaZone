@@ -12,7 +12,7 @@ local Children: any = Fusion.Children
 
 local ClickDebounce: boolean = false
 
-local TransparentFrame = require(script.Addons.TransparentFrame)
+local ContainerFrame = require(script.Addons.ContainerFrame)
 local Button = require(script.Addons.Button)
 local Message = require(script.Addons.Message)
 local ChatBox = require(script.Addons.ChatBox)
@@ -20,7 +20,7 @@ local Label = require(script.Addons.Label)
 local ListLayout = require(script.Addons.ListLayout)
 
 function Creator:ControlFrame()
-	return TransparentFrame:Create {
+	return ContainerFrame:Create {
 		Name = "Control",
 		Size = UDim2.new(1, 0, 0.04, 0),
 
@@ -74,7 +74,7 @@ function Creator:ControlFrame()
 end
 
 function Creator:ListFrame()
-	return TransparentFrame:Create {
+	return ContainerFrame:Create {
 		Name = "List",
 		Size = UDim2.new(0.1, 0, 0.96, 0),
 		AnchorPoint = Vector2.new(0.96, 0),
