@@ -35,12 +35,19 @@ function GUI:Initialize()
 
 			ContainerFrame:Create {
 				Name = "Bypass",
-				Size = UDim2.new(1, 0, 1, 0),
 				AnchorPoint = Vector2.new(0, 0),
+				Size = UDim2.new(1, 0, 1, 0),
 				Position = UDim2.new(0, 0, 0, 0),
 
 				[Children] = {
-					Creator:ChatBox(GUI)
+					Creator:ChatBox(GUI),
+
+					ContainerFrame:Create {
+						Name = "Output",
+						AnchorPoint = Vector2.new(0, 0.1),
+						Size = UDim2.new(0.5, 0, 0.2, 0),
+						Position = UDim2.new(0, 0, 0.1, 0),
+					}
 				}
 			}
 		}
