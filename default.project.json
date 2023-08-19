@@ -79,13 +79,6 @@
         "RespectFilteringEnabled": true
       },
       "$path": "src/SoundService"
-    },
-
-    "TextChatService": {
-      "$properties": {
-        "ChatVersion": "TextChatService",
-        "CreateDefaultCommands": false
-      }
     }
   }
 }
