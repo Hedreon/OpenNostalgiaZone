@@ -40,8 +40,6 @@ function GUI:Initialize()
 				Position = UDim2.new(0, 0, 0, 0),
 
 				[Children] = {
-					Creator:ChatBox(GUI),
-
 					ContainerFrame:Create {
 						Name = "Output",
 						AnchorPoint = Vector2.new(0, 0.1),
