@@ -162,7 +162,7 @@ if Humanoid then
 			return
 		end
 	
-		if Humanoid.MoveDirection ~= Vector3.new(0, 0, 0) then
+		if Humanoid.MoveDirection.Magnitude > 0 then
 			Pose = "Running"
 		else
 			Pose = "Standing"
