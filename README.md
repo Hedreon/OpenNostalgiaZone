@@ -2,7 +2,7 @@
 
 [![Trello Board Button](https://img.shields.io/badge/trello-000000.svg?style=for-the-badge&logo=trello)](https://trello.com/b/upqPoyyh) [![Roblox Game Button](https://img.shields.io/badge/game-000000.svg?style=for-the-badge&logo=roblox)](https://www.roblox.com/games/13076409394)
 
-Open Nostalgia Zone (ONZ) adds 2 simulations; the 2006 simulation and the 2016 simulation. 2006 being Roblox's inception and 2016 being Roblox's 10th birthday. Currently, it has the 2006 simulation.
+Open Nostalgia Zone (ONZ) is @Hedreon's take on the classic [Crossroads](https://rblx.games/1818) game using his own 2006 emulation.
 
 ## Building from source
 
