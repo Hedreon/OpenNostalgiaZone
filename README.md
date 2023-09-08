@@ -1,8 +1,10 @@
-# Open Nostalgia Zone
+# Discontinuation Notice
 
-[![Trello Board Button](https://img.shields.io/badge/trello-000000.svg?style=for-the-badge&logo=trello)](https://trello.com/b/upqPoyyh) [![Roblox Game Button](https://img.shields.io/badge/game-000000.svg?style=for-the-badge&logo=roblox)](https://www.roblox.com/games/13076409394)
+This project's been burning me out man... If anyone would like to continue development, feel free to fork! 🍴
 
-Open Nostalgia Zone (ONZ) is @Hedreon's take on the classic [Crossroads](https://rblx.games/1818) game using his own 2006 emulation.
+# Open Nostalgia Zone (DISCONTINUED!)
+
+Open Nostalgia Zone (ONZ) is Hedreon's take on the classic [Crossroads](https://rblx.games/1818) game using his own 2006 emulation inspired by [Super Nostalgia Zone.](rblx.games/998374377)
 
 ## Building from source
 
