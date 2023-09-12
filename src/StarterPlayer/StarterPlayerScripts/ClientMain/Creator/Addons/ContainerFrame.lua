@@ -3,10 +3,9 @@ local ContainerFrame = {}
 local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Packages: Instance? = ReplicatedStorage:FindFirstChild("Packages")
-
-local Fusion: any = if Packages then require(Packages:WaitForChild("fusion")) else nil
-local New: any = Fusion.New
-local Children: any = Fusion.Children
+local Fusion = if Packages then require(Packages:WaitForChild("fusion")) else nil
+local New = Fusion.New
+local Children = Fusion.Children
 
 function ContainerFrame:Create(Properties: {Name: string, Size: UDim2, AnchorPoint: Vector2, Position: UDim2, [any]: any})
 	return New "Frame" {

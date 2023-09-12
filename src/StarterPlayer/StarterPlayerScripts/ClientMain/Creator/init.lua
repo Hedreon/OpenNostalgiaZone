@@ -75,9 +75,9 @@ end
 function Creator:ListFrame()
 	return ContainerFrame:Create {
 		Name = "List",
-		Size = UDim2.new(0.1, 0, 0.96, 0),
-		AnchorPoint = Vector2.new(0.96, 0),
-		Position = UDim2.new(0.98, 0, 0.04, 0),
+		Size = UDim2.new(0.1, 0, 0.92, 0),
+		AnchorPoint = Vector2.new(0.98, 0),
+		Position = UDim2.new(0.98, 0, 0.08, 0),
 
 		[Children] = {
 			Label:Create {

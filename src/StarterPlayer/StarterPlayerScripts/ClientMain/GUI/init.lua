@@ -16,7 +16,7 @@ local Creator = require(script.Parent.Creator)
 local ContainerFrame = require(script.Parent.Creator.Addons.ContainerFrame)
 
 function GUI:Initialize()
-	local _UI: any = New "ScreenGui" {
+	local _UI = New "ScreenGui" {
 		Name = "MainGui",
 		Parent = PlayerGui,
 		ScreenInsets = Enum.ScreenInsets.None,
@@ -24,8 +24,8 @@ function GUI:Initialize()
 		[Children] = {
 			ContainerFrame:Create {
 				Name = "Main",
-				Size = UDim2.new(0.96, 0, 1, 0),
-				Position = UDim2.new(0.04, 0, 0, 0),
+				Size = UDim2.new(0.95, 0, 1, 0),
+				Position = UDim2.new(0.05, 0, 0, 0),
 
 				[Children] = {
 					Creator:ControlFrame(),
@@ -37,16 +37,7 @@ function GUI:Initialize()
 				Name = "Bypass",
 				AnchorPoint = Vector2.new(0, 0),
 				Size = UDim2.new(1, 0, 1, 0),
-				Position = UDim2.new(0, 0, 0, 0),
-
-				[Children] = {
-					ContainerFrame:Create {
-						Name = "Output",
-						AnchorPoint = Vector2.new(0, 0.1),
-						Size = UDim2.new(0.5, 0, 0.2, 0),
-						Position = UDim2.new(0, 0, 0.1, 0),
-					}
-				}
+				Position = UDim2.new(0, 0, 0, 0)
 			}
 		}
 	}

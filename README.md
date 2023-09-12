@@ -4,7 +4,7 @@ This project's been burning me out man... If anyone would like to continue devel
 
 # Open Nostalgia Zone (DISCONTINUED!)
 
-Open Nostalgia Zone (ONZ) is Hedreon's take on the classic [Crossroads](https://rblx.games/1818) game using his own 2006 emulation inspired by [Super Nostalgia Zone.](rblx.games/998374377)
+Open Nostalgia Zone (ONZ) is Hedreon's simple emulation of Roblox back in 2006 inspired by [Super Nostalgia Zone.](rblx.games/998374377)
 
 ## Building from source
 

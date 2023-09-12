@@ -3,9 +3,8 @@ local Label = {}
 local ReplicatedStorage: ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Packages: Instance? = ReplicatedStorage:FindFirstChild("Packages")
-
-local Fusion: any = if Packages then require(Packages:WaitForChild("fusion")) else nil
-local New: any = Fusion.New
+local Fusion = if Packages then require(Packages:WaitForChild("fusion")) else nil
+local New = Fusion.New
 
 function Label:Create(Properties: {Name: string, Text: string, Size: UDim2, Position: UDim2, Visible: boolean})
 	return New "TextLabel" {
